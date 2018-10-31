@@ -1,6 +1,11 @@
 .loop-layout-staff_grid {
     margin-top: 35px;
 
+    @include mobile {
+        margin-top: 0;
+    }
+
+
     .entry {
         .loop-item-inner {
             height: 0;

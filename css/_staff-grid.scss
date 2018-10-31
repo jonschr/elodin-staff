@@ -1,0 +1,165 @@
+.loop-layout-staff_grid {
+    margin-top: 35px;
+
+    .entry {
+        .loop-item-inner {
+            height: 0;
+            padding-top: 130%;
+            width: 100%;
+            position: relative;
+            background: black;
+            overflow: hidden;
+            border-radius: 3px;
+        }
+
+        .featured-image {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center center;
+            z-index: 5;
+            filter: brightness(80%);
+        }
+    }
+
+    .staff-content {
+        display: none;
+    }
+
+    .overlay-link {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: block;
+        z-index: 10;
+        opacity: 0;
+        transition: .5s all;
+
+        @include mobile {
+            opacity: 1;
+        }
+
+
+        .overlay-text {
+            color: white;
+            text-align: center;
+            display: block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+
+            @include mobile {
+                font-size: 14px;
+                top: 20px;
+                transform: none;
+            }
+        }
+    }
+
+    .no-image {
+        z-index: 10;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        .content-wrap {
+            top: 50%;
+            transform: translateY(-50%);
+            position: absolute;
+            left: 0;
+            right: 0;
+            display: block;
+            text-align: center;
+            padding: 0 15px;
+
+            * {
+                color: white;
+            }
+
+            span {
+                display: block;
+            }
+
+            .button {
+                @include mobile {
+                    font-size: 12px;
+                    padding: 12px 12px;
+                }
+            }
+        }
+    }
+
+    .more-link-wrap {
+        position: absolute;
+        bottom: 0;
+        transform: translateY(100%);
+        left: 0;
+        right: 0;
+        z-index: 20;
+        padding: 20px;
+        background: rgba(black, 0.6);
+        opacity: 0;
+        transition: .5s all;
+
+        :last-child {
+            margin-bottom: 0;
+        }
+
+        @include mobile {
+            transform: none;
+            opacity: 1;
+            padding: 10px 5px;
+        }
+
+
+        h3,
+        span {
+            display: block;
+            color: white;
+            text-align: center;
+        }
+    }
+
+    .entry:hover {
+        .overlay-link {
+            opacity: 1;
+            background: rgba(black, 0.3);
+        }
+
+        .more-link-wrap {
+            transform: none;
+            opacity: 1;
+        }
+    }
+
+    h3.name {
+        font-size: 22px;
+        letter-spacing: 0;
+        margin-bottom: 5px;
+        line-height: 1.2em;
+
+        @include mobile {
+            font-size: 14px;
+        }
+    }
+
+    span.jobtitle {
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 2px;
+        line-height: 1.1em;
+
+        @include mobile {
+            font-size: 10px;
+            letter-spacing: 0;
+        }
+    }
+}

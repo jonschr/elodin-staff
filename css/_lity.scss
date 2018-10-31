@@ -1,0 +1,44 @@
+.lity.lity-inline {
+    z-index: 99999;
+
+    .staff-content {
+        background: white;
+        max-width: 960px;
+        max-height: calc( 100vh - 100px ) !important;
+        margin: 0 auto;
+        padding: 50px 60px;
+        overflow-y: auto;
+        display: block;
+
+        @include mobile {
+            max-height: 100% !important;
+            margin: 0;
+            padding: 30px;
+        }
+
+
+        .wp-post-image {
+            float: right;
+            margin: 0 0 25px 25px;
+
+            @include mobile {
+                display: none;
+            }
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .title {
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 0;
+        }
+    }
+
+    .lity-close {
+        color: black;
+    }
+}

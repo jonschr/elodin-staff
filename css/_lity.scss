@@ -5,13 +5,16 @@
         background: white;
         max-width: 960px;
         max-height: calc( 100vh - 100px ) !important;
+        width: 100%;
         margin: 0 auto;
         padding: 50px 60px;
-        overflow-y: auto;
+        overflow-y: auto !important;
         display: block;
+        -webkit-overflow-scrolling: touch;
 
         @include mobile {
-            max-height: 100% !important;
+            max-height: 100vh !important;
+            height: 100vh !important;
             margin: 0;
             padding: 30px;
         }
@@ -41,4 +44,9 @@
     .lity-close {
         color: black;
     }
+}
+
+.lity-active,
+.lity-active body {
+    overflow: hidden;
 }

@@ -51,10 +51,6 @@ include_once( 'layouts/staff_grid.php' );
 add_action( 'wp_enqueue_scripts', 'elodin_staff_enqueue_scripts_styles' );
 function elodin_staff_enqueue_scripts_styles() {
 
-    //* Don't add these scripts and styles to the admin side of the site
-    if ( is_admin() )
-        return;
-
     //* Enqueue lity style
     wp_register_style( 'lity-staff-style', plugin_dir_url( __FILE__ ) . 'lity/lity.min.css', array(), ELODIN_STAFF_VERSION, 'screen' );
 
@@ -63,5 +59,22 @@ function elodin_staff_enqueue_scripts_styles() {
 
     //* Enqueue layout styles
     wp_register_style( 'staff-style', plugin_dir_url( __FILE__ ) . 'css/staff-style.css', array(), ELODIN_STAFF_VERSION, 'screen' );
+
+}
+
+/**
+ * Backend styles and scripts
+ */
+add_action( 'enqueue_block_editor_assets', 'elodin_staff_enqueue_scripts_styles_gutenberg' );
+function elodin_staff_enqueue_scripts_styles_gutenberg() {
+
+    //* Enqueue lity style
+    wp_enqueue_style( 'lity-staff-style', plugin_dir_url( __FILE__ ) . 'lity/lity.min.css', array(), ELODIN_STAFF_VERSION, 'screen' );
+
+    //* Google maps scrollfix
+    wp_enqueue_script( 'lity-staff-main', plugin_dir_url( __FILE__ ) . 'lity/lity.min.js', array( 'jquery' ), ELODIN_STAFF_VERSION, true );
+
+    //* Enqueue layout styles
+    wp_enqueue_style( 'staff-style', plugin_dir_url( __FILE__ ) . 'css/staff-style.css', array(), ELODIN_STAFF_VERSION, 'screen' );
 
 }

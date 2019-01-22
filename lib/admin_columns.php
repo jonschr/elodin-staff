@@ -51,6 +51,21 @@ function ac_custom_column_settings_3ff51fb2() {
 					'label_type' => '',
 					'search' => ''
 				),
+				'5c4791185d6aa' => array(
+					'type' => 'column-taxonomy',
+					'label' => 'Categories',
+					'width' => '',
+					'width_unit' => '%',
+					'taxonomy' => 'staffcategories',
+					'edit' => 'on',
+					'enable_term_creation' => 'off',
+					'sort' => 'on',
+					'filter' => 'on',
+					'filter_label' => '',
+					'name' => '5c4791185d6aa',
+					'label_type' => '',
+					'search' => ''
+				),
 				'5bda068e1d073' => array(
 					'type' => 'column-excerpt',
 					'label' => 'Excerpt',

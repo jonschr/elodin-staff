@@ -3,7 +3,7 @@
 /**
  * Automatically set things up if Admin Colums Pro is installed
  */
-function ac_custom_column_settings_3ff51fb2() {
+function ac_custom_column_settings_ef7f87bf() {
 
 	ac_register_columns( 'staff', array(
 		array(
@@ -23,6 +23,8 @@ function ac_custom_column_settings_3ff51fb2() {
 					'filter_label' => '',
 					'name' => '5bda06f02ddfb',
 					'label_type' => '',
+					'bulk-editing' => '',
+					'export' => '',
 					'search' => ''
 				),
 				'title' => array(
@@ -34,6 +36,8 @@ function ac_custom_column_settings_3ff51fb2() {
 					'sort' => 'on',
 					'name' => 'title',
 					'label_type' => '',
+					'bulk-editing' => '',
+					'export' => '',
 					'search' => ''
 				),
 				'5bda068e20ed2' => array(
@@ -44,11 +48,13 @@ function ac_custom_column_settings_3ff51fb2() {
 					'field' => 'field_5a8753261bc62',
 					'character_limit' => '20',
 					'edit' => 'on',
-					'sort' => 'on',
+					'sort' => 'off',
 					'filter' => 'off',
 					'filter_label' => '',
 					'name' => '5bda068e20ed2',
 					'label_type' => '',
+					'bulk-editing' => '',
+					'export' => '',
 					'search' => ''
 				),
 				'5c4791185d6aa' => array(
@@ -57,6 +63,7 @@ function ac_custom_column_settings_3ff51fb2() {
 					'width' => '',
 					'width_unit' => '%',
 					'taxonomy' => 'staffcategories',
+					'number_of_items' => '10',
 					'edit' => 'on',
 					'enable_term_creation' => 'off',
 					'sort' => 'on',
@@ -64,6 +71,7 @@ function ac_custom_column_settings_3ff51fb2() {
 					'filter_label' => '',
 					'name' => '5c4791185d6aa',
 					'label_type' => '',
+					'export' => '',
 					'search' => ''
 				),
 				'5bda068e1d073' => array(
@@ -80,6 +88,8 @@ function ac_custom_column_settings_3ff51fb2() {
 					'filter_label' => '',
 					'name' => '5bda068e1d073',
 					'label_type' => '',
+					'bulk-editing' => '',
+					'export' => '',
 					'search' => ''
 				),
 				'5bda068e1ec03' => array(
@@ -97,6 +107,8 @@ function ac_custom_column_settings_3ff51fb2() {
 					'filter_label' => '',
 					'name' => '5bda068e1ec03',
 					'label_type' => '',
+					'bulk-editing' => '',
+					'export' => '',
 					'search' => ''
 				),
 				'5bda068e1f72b' => array(
@@ -111,6 +123,8 @@ function ac_custom_column_settings_3ff51fb2() {
 					'filter_label' => '',
 					'name' => '5bda068e1f72b',
 					'label_type' => '',
+					'bulk-editing' => '',
+					'export' => '',
 					'search' => ''
 				),
 				'5bda068e21690' => array(
@@ -126,11 +140,36 @@ function ac_custom_column_settings_3ff51fb2() {
 					'filter_label' => '',
 					'name' => '5bda068e21690',
 					'label_type' => '',
+					'bulk-editing' => '',
+					'export' => '',
+					'search' => ''
+				),
+				'5d767eb1148c0' => array(
+					'type' => 'column-acf_field',
+					'label' => 'LinkedIn URL',
+					'width' => '',
+					'width_unit' => '%',
+					'field' => 'field_5a8753401bc64ab',
+					'edit' => 'on',
+					'sort' => 'on',
+					'filter' => 'off',
+					'filter_label' => '',
+					'name' => '5d767eb1148c0',
+					'label_type' => '',
+					'bulk-editing' => '',
+					'export' => '',
 					'search' => ''
 				)
 			),
+			'layout' => array(
+				'id' => '5d767e8822e9e',
+				'name' => 'Test',
+				'roles' => false,
+				'users' => false,
+				'read_only' => false
+			)
 			
 		)
 	) );
 }
-add_action( 'ac/ready', 'ac_custom_column_settings_3ff51fb2' );
+add_action( 'ac/ready', 'ac_custom_column_settings_ef7f87bf' );

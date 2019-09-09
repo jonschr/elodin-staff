@@ -6,6 +6,21 @@
     }
 
 
+    .edit-link {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        display: block;
+        opacity: 1;
+        z-index: 20;
+        transform: translateX(-50%);
+
+        a.post-edit-link {
+            color: white;
+            text-decoration: none;
+        }
+    }
+
     .entry {
         .loop-item-inner {
             height: 0;

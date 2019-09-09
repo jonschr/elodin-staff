@@ -19,6 +19,9 @@ function rb_staff_layout() {
 	$title = get_the_title();
 	$email = get_post_meta( get_the_ID(), 'email_address', true );
 	$phone = get_post_meta( get_the_ID(), 'phone_number', true );
+	$linkedin = get_post_meta( get_the_ID(), 'linkedinurl', true );
+
+	edit_post_link( 'Edit staff member', '<span class="edit-link"><small>', '</small></span>' );
 
 	//* If there's a thumbnail...
 	if ( has_post_thumbnail() ) {
@@ -41,11 +44,15 @@ function rb_staff_layout() {
 
 				echo '<div class="more-link-wrap">';
 
+					if ( $linkedin )
+						printf( '<a href="%s" target="_blank" class="linkedin">Visit on LinkedIn</a>' );
+
 					if ( $title )
 						printf( '<h3 class="name">%s</h3>', $title );
 
 					if ( $jobtitle )
 						printf( '<span class="jobtitle">%s</span>', $jobtitle );
+
 
 		// End the link if there's content
 		if ( $content )
@@ -72,8 +79,6 @@ function rb_staff_layout() {
 	if ( $content ) {
 		printf( '<div class="staff-content" id="staff-%s">', get_the_ID() );
 
-			edit_post_link( 'Edit staff member', '<span class="edit-link"><small>', '</small></span>' );
-
 			if ( has_post_thumbnail() )
 				the_post_thumbnail( 'medium', ['class' => 'featured-right']);
 
@@ -87,6 +92,9 @@ function rb_staff_layout() {
 
 			if ( $email )
 				printf( '<p class="contact"><a class="button button-clear" href="mailto:%s">Contact</a></p>', $email );
+
+			if ( $linkedin )
+				printf( '<p class="linkedin"><a href="%s" target="_blank" class="linkedin">Visit on LinkedIn</a></p>' );
 
 
 			echo $content;

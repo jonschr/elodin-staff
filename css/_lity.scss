@@ -20,6 +20,22 @@
         }
 
 
+        .info {
+            margin-bottom: 20px;
+
+            p {
+                margin-bottom: 0;
+            }
+
+            p.contact {
+                padding-top: 15px;
+            }
+        }
+
+        a.button {
+            margin-right: 5px;
+        }
+
         .wp-post-image {
             float: right;
             margin: 0 0 25px 25px;

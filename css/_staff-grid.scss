@@ -47,6 +47,10 @@
 
     .staff-content {
         display: none;
+
+        a.button {
+            margin-right: 5px !important;
+        }
     }
 
     .overlay-link {
@@ -79,6 +83,19 @@
                 top: 20px;
                 transform: none;
             }
+        }
+    }
+
+    .linkedin {
+        text-align: center;
+        color: white;
+        text-decoration: underline;
+        display: block;
+        font-size: 16px;
+        padding-top: 5px;
+
+        &:hover {
+            text-decoration: underline;
         }
     }
 

@@ -19,7 +19,7 @@ function rb_staff_layout() {
 	$title = get_the_title();
 	$email = get_post_meta( get_the_ID(), 'email_address', true );
 	$phone = get_post_meta( get_the_ID(), 'phone_number', true );
-	$linkedin = get_post_meta( get_the_ID(), 'linkedinurl', true );
+	$linkedin = get_post_meta( get_the_ID(), 'linkedin', true );
 
 	edit_post_link( 'Edit staff member', '<span class="edit-link"><small>', '</small></span>' );
 
@@ -43,15 +43,17 @@ function rb_staff_layout() {
 			printf( '<a href="#staff-%s" data-lity class="more-link">', get_the_ID() ); 
 
 				echo '<div class="more-link-wrap">';
-
-					if ( $linkedin )
-						printf( '<a href="%s" target="_blank" class="linkedin">Visit on LinkedIn</a>' );
-
+				
 					if ( $title )
 						printf( '<h3 class="name">%s</h3>', $title );
-
+					
 					if ( $jobtitle )
 						printf( '<span class="jobtitle">%s</span>', $jobtitle );
+					
+					if ( $linkedin )
+						printf( '<a href="%s" target="_blank" class="linkedin">Visit on LinkedIn</a>', $linkedin );
+
+				echo '</div>'; // .more-link-wrap
 
 
 		// End the link if there's content
@@ -84,18 +86,27 @@ function rb_staff_layout() {
 
 			printf( '<h2>%s</h2>', $title );
 
-			if ( $jobtitle )
-				printf( '<p class="title">%s</p>', $jobtitle );
+			echo '<div class="info">';
 
-			if ( $phone )
-				printf( '<p class="phone">%s</p>', $phone );
+				if ( $jobtitle )
+					printf( '<p class="title">%s</p>', $jobtitle );
 
-			if ( $email )
-				printf( '<p class="contact"><a class="button button-clear" href="mailto:%s">Contact</a></p>', $email );
+				if ( $phone )
+					printf( '<p class="phone">%s</p>', $phone );
 
-			if ( $linkedin )
-				printf( '<p class="linkedin"><a href="%s" target="_blank" class="linkedin">Visit on LinkedIn</a></p>' );
+				if ( $email || $linkedin ) {
+					echo '<p class="contact">';
 
+					if ( $email )
+						printf( '<a class="button" href="mailto:%s">Contact</a>', $email );
+
+					if ( $linkedin )
+						printf( '<a class="button" href="mailto:%s">Visit on LinkedIn</a>', $linkedin );
+
+					echo '</p>';
+				}
+
+			echo '</div>'; // .info
 
 			echo $content;
 

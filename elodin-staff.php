@@ -29,7 +29,7 @@ if ( !defined( 'ABSPATH' ) ) {
 define( 'ELODIN_STAFF', dirname( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'ELODIN_STAFF_VERSION', '0.1.2' );
+define ( 'ELODIN_STAFF_VERSION', '0.1.3' );
 
 // Add post types
 include_once( 'lib/post_type.php' );

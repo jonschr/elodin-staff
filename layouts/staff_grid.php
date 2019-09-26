@@ -101,7 +101,7 @@ function rb_staff_layout() {
 						printf( '<a class="button" href="mailto:%s">Contact</a>', $email );
 
 					if ( $linkedin )
-						printf( '<a class="button" href="mailto:%s">Visit on LinkedIn</a>', $linkedin );
+						printf( '<a class="button" href="%s">Visit on LinkedIn</a>', $linkedin );
 
 					echo '</p>';
 				}

@@ -26,7 +26,7 @@ add_action( 'add_loop_layout_staff', 'elodin_staff_layout' );
 function elodin_staff_layout() {
 
 	$jobtitle = get_post_meta( get_the_ID(), 'job_title', true );
-	$content = apply_filters( 'the_content', get_the_content() );
+	$content = apply_filters( 'the_content', get_the_content() ); // note: when we output this, we're applying the filters again. That's intentional because Gutenberg is removing that filter once, and it manifests in breaking the first loop through the_content.
 	$title = get_the_title();
 	$email = get_post_meta( get_the_ID(), 'email_address', true );
 	$phone = get_post_meta( get_the_ID(), 'phone_number', true );
@@ -86,7 +86,7 @@ function elodin_staff_layout() {
 				printf( '<p class="contact"><a class="button button-clear" href="mailto:%s">Contact</a></p>', $email );
 
 
-			echo $content;
+			echo apply_filters( 'the_content', $content );
 
 		echo '</div>';
 	}

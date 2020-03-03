@@ -31,6 +31,7 @@ function elodin_staff_layout() {
 	$email = get_post_meta( get_the_ID(), 'email_address', true );
 	$phone = get_post_meta( get_the_ID(), 'phone_number', true );
 	$excerpt = apply_filters( 'the_content', get_the_excerpt() );
+	$linkedin = get_post_meta( get_the_ID(), 'linkedin', true );
 
 	if ( has_post_thumbnail() ) echo '<div class="left">';
 
@@ -82,9 +83,17 @@ function elodin_staff_layout() {
 			if ( $phone )
 				printf( '<p class="phone">%s</p>', $phone );
 
-			if ( $email )
-				printf( '<p class="contact"><a class="button button-clear" href="mailto:%s">Contact</a></p>', $email );
+			if ( $email || $linkedin ) {
+					echo '<p class="contact">';
 
+				if ( $email )
+					printf( '<a class="button" href="mailto:%s">Contact</a>', $email );
+
+				if ( $linkedin )
+					printf( '<a class="button" href="%s">Visit on LinkedIn</a>', $linkedin );
+
+				echo '</p>';
+			}
 
 			echo apply_filters( 'the_content', $content );
 

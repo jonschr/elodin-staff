@@ -21,6 +21,11 @@ function rb_staff_layout() {
 	$phone = get_post_meta( get_the_ID(), 'phone_number', true );
 	$linkedin = get_post_meta( get_the_ID(), 'linkedin', true );
 
+	$contactlabel = 'More information';
+	
+	if ( $phone || $email )
+		$contactlabel = 'Bio & Contact';
+
 	edit_post_link( 'Edit staff member', '<span class="edit-link"><small>', '</small></span>' );
 
 	//* If there's a thumbnail...
@@ -33,7 +38,7 @@ function rb_staff_layout() {
 
 			printf( '<a href="#staff-%s" data-lity class="overlay-link">', get_the_ID() );
 
-				echo '<span class="overlay-text">Bio & Contact</span>';
+				printf('<span class="overlay-text">%s</span>', $contactlabel );
 
 			echo '</a>';
 	    }
@@ -72,7 +77,7 @@ function rb_staff_layout() {
 				printf( '<span class="jobtitle">%s</span>', $jobtitle );
 
 			if ( $content )
-				printf( '<a href="#staff-%s" data-lity class="button button-small">Read Bio</a>', get_the_ID() );
+				printf( '<a href="#staff-%s" data-lity class="button button-small" style="margin-top: 20px;">%s</a>', get_the_ID(), $contactlabel );
 
 		echo '</div></div>';
 	}

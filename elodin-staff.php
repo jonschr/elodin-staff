@@ -46,6 +46,7 @@ include_once( 'lib/admin_columns.php' );
 // Add layouts
 include_once( 'layouts/staff.php' );
 include_once( 'layouts/staff_grid.php' );
+include_once( 'layouts/staff_simple.php' );
 
 //* Enqueue Scripts and Styles
 add_action( 'wp_enqueue_scripts', 'elodin_staff_enqueue_scripts_styles' );

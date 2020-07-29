@@ -4,7 +4,7 @@
     .staff-content {
         background: white;
         max-width: 960px;
-        max-height: calc( 100vh - 100px ) !important;
+        max-height: calc(100vh - 100px) !important;
         width: 100%;
         margin: 0 auto;
         padding: 50px 60px;
@@ -47,6 +47,7 @@
 
         h2 {
             margin-bottom: 10px;
+            clear: none !important;
         }
 
         .title {

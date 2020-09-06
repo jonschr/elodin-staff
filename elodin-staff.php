@@ -4,7 +4,7 @@
 	Plugin URI: https://elod.in
     GitHub Plugin URI: https://github.com/jonschr/elodin-staff
 	Description: Just another staff plugin
-	Version: 1.0.1
+	Version: 1.0.2
     Author: Jon Schroeder
     Author URI: https://elod.in
 
@@ -29,7 +29,7 @@ if ( !defined( 'ABSPATH' ) ) {
 define( 'ELODIN_STAFF', dirname( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'ELODIN_STAFF_VERSION', '1.0.1' );
+define ( 'ELODIN_STAFF_VERSION', '1.0.2' );
 
 // Add post types
 include_once( 'lib/post_type.php' );

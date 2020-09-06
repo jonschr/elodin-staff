@@ -5,7 +5,6 @@
         margin-top: 0;
     }
 
-
     .edit-link {
         position: absolute;
         top: 5px;
@@ -86,18 +85,7 @@
         }
     }
 
-    .linkedin {
-        text-align: center;
-        color: white;
-        text-decoration: underline;
-        display: block;
-        font-size: 16px;
-        padding-top: 5px;
 
-        &:hover {
-            text-decoration: underline;
-        }
-    }
 
     .no-image {
         z-index: 10;
@@ -185,6 +173,8 @@
         }
     }
 
+
+
     h3.name {
         font-size: 22px;
         letter-spacing: 0;
@@ -194,6 +184,29 @@
         @include mobile {
             font-size: 14px;
         }
+    }
+
+    .contact {
+        text-align: center;
+        padding-top: 10px;
+
+        a {
+            color: white;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .linkedin,
+    .contact__email,
+    .contact__phone {
+        display: block;
+        color: white;
+        font-size: 14px;
+        line-height: 1.4em;
     }
 
     span.jobtitle {

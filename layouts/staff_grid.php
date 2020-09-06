@@ -54,9 +54,23 @@ function rb_staff_layout() {
 					
 					if ( $jobtitle )
 						printf( '<span class="jobtitle">%s</span>', $jobtitle );
-					
-					if ( $linkedin )
-						printf( '<a href="%s" target="_blank" class="linkedin">Visit on LinkedIn</a>', $linkedin );
+						
+					if ( !$content ) {
+						if ( $email || $linkedin ) {
+							echo '<p class="contact">';
+	
+								if ( $phone )
+									printf( '<span class="contact__phone">%s</span>', $phone );
+									
+								if ( $email )
+									printf( '<a class="contact__email" href="mailto:%s">%s</a>', $email, $email );
+		
+								if ( $linkedin )
+									printf( '<a href="%s" target="_blank" class="linkedin">Visit on LinkedIn</a>', $linkedin );
+	
+							echo '</p>';
+						}
+					}
 
 				echo '</div>'; // .more-link-wrap
 
@@ -75,6 +89,23 @@ function rb_staff_layout() {
 
 			if ( $jobtitle )
 				printf( '<span class="jobtitle">%s</span>', $jobtitle );
+				
+			if ( !$content ) {
+				if ( $email || $linkedin ) {
+					echo '<p class="contact">';
+
+						if ( $phone )
+							printf( '<span class="contact__phone">%s</span>', $phone );
+							
+						if ( $email )
+							printf( '<a class="contact__email" href="mailto:%s">%s</a>', $email, $email );
+
+						if ( $linkedin )
+							printf( '<a href="%s" target="_blank" class="linkedin">Visit on LinkedIn</a>', $linkedin );
+
+					echo '</p>';
+				}
+			}
 
 			if ( $content )
 				printf( '<a href="#staff-%s" data-lity class="button button-small" style="margin-top: 20px;">%s</a>', get_the_ID(), $contactlabel );

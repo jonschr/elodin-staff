@@ -1,3 +1,7 @@
+### 1.0.2 
+* If there's no content area, then allow the grid to display contact information in the foreground instead. NOTE: This is *only* if that post has no contact information.
+* Update dependendies in package.lock (npm was erroring after install)
+
 ### 1.0.1
 * Bugfix on the lightbox; images were pushing down the first heading
 

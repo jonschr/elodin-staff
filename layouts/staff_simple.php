@@ -5,9 +5,9 @@ add_action( 'before_loop_layout_staff_simple', 'elodin_staff_simple_layout_scrip
 function elodin_staff_simple_layout_scripts( $args ) {
 	    
     // Use the lity lightbox
-    wp_enqueue_script( 'lity-script' );	
-	wp_enqueue_style( 'lity-style' );
-	wp_enqueue_style( 'staff-style' );
+    wp_enqueue_script( 'es-lity-script' );	
+	wp_enqueue_style( 'es-lity-style' );
+	wp_enqueue_style( 'es-staff-style' );
 
 }
 

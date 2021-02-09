@@ -5,9 +5,9 @@ add_action( 'before_loop_layout_staff_grid', 'rb_staff_layout_scripts' );
 function rb_staff_layout_scripts( $args ) {
 	
 	// Use the lity lightbox
-    wp_enqueue_script( 'lity-script' );	
-	wp_enqueue_style( 'lity-style' );
-	wp_enqueue_style( 'staff-style' );
+    wp_enqueue_script( 'es-lity-script' );	
+	wp_enqueue_style( 'es-lity-style' );
+	wp_enqueue_style( 'es-staff-style' );
 }
 
 //* Output the leadership markup for each item

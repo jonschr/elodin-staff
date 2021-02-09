@@ -2,9 +2,8 @@
 /*
 	Plugin Name: Elodin Staff
 	Plugin URI: https://elod.in
-    GitHub Plugin URI: https://github.com/jonschr/elodin-staff
 	Description: Just another staff plugin
-	Version: 1.0.2
+	Version: 1.0.3
     Author: Jon Schroeder
     Author URI: https://elod.in
 
@@ -29,7 +28,7 @@ if ( !defined( 'ABSPATH' ) ) {
 define( 'ELODIN_STAFF', dirname( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'ELODIN_STAFF_VERSION', '1.0.2' );
+define ( 'ELODIN_STAFF_VERSION', '1.0.3' );
 
 // Add post types
 include_once( 'lib/post_type.php' );
@@ -53,30 +52,13 @@ add_action( 'wp_enqueue_scripts', 'elodin_staff_enqueue_scripts_styles' );
 function elodin_staff_enqueue_scripts_styles() {
 
     //* Register lity style
-    wp_register_style( 'lity-style', plugin_dir_url( __FILE__ ) . 'lity/lity.min.css', array(), ELODIN_STAFF_VERSION, 'screen' );
+    wp_register_style( 'es-lity-style', plugin_dir_url( __FILE__ ) . 'lity/lity.min.css', array(), ELODIN_STAFF_VERSION, 'screen' );
 
     //* Register lity script
-    wp_register_script( 'lity-script', plugin_dir_url( __FILE__ ) . 'lity/lity.min.js', array( 'jquery' ), ELODIN_STAFF_VERSION, true );
+    wp_register_script( 'es-lity-script', plugin_dir_url( __FILE__ ) . 'lity/lity.min.js', array( 'jquery' ), ELODIN_STAFF_VERSION, true );
 
     //* Register layout styles
-    wp_register_style( 'staff-style', plugin_dir_url( __FILE__ ) . 'css/staff-style.css', array(), ELODIN_STAFF_VERSION, 'screen' );
-
-}
-
-/**
- * Backend styles and scripts
- */
-add_action( 'enqueue_block_editor_assets', 'elodin_staff_enqueue_scripts_styles_gutenberg' );
-function elodin_staff_enqueue_scripts_styles_gutenberg() {
-
-    //* Enqueue lity style
-    wp_enqueue_style( 'lity-style', plugin_dir_url( __FILE__ ) . 'lity/lity.min.css', array(), ELODIN_STAFF_VERSION, 'screen' );
-
-    //* Enqueue lity script
-    wp_enqueue_script( 'lity-script', plugin_dir_url( __FILE__ ) . 'lity/lity.min.js', array( 'jquery' ), ELODIN_STAFF_VERSION, true );
-
-    //* Enqueue layout styles
-    wp_enqueue_style( 'staff-style', plugin_dir_url( __FILE__ ) . 'css/staff-style.css', array(), ELODIN_STAFF_VERSION, 'screen' );
+    wp_register_style( 'es-staff-style', plugin_dir_url( __FILE__ ) . 'css/staff-style.css', array(), ELODIN_STAFF_VERSION, 'screen' );
 
 }
 

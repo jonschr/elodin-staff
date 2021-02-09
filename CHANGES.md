@@ -1,3 +1,5 @@
+### 1.0.3
+* Removing some legacy code
 ### 1.0.2 
 * If there's no content area, then allow the grid to display contact information in the foreground instead. NOTE: This is *only* if that post has no contact information.
 * Update dependendies in package.lock (npm was erroring after install)

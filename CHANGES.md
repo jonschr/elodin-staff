@@ -1,3 +1,6 @@
+### 1.2
+* Adding admin columns pro syncing, a few other quality of life updates
+
 ### 1.0.3
 * Removing some legacy code
 ### 1.0.2 

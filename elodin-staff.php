@@ -3,7 +3,7 @@
 	Plugin Name: Elodin Staff
 	Plugin URI: https://elod.in
 	Description: Just another staff plugin
-	Version: 1.0.3
+	Version: 1.2.0
     Author: Jon Schroeder
     Author URI: https://elod.in
 
@@ -25,10 +25,11 @@ if ( !defined( 'ABSPATH' ) ) {
 }
 
 // Plugin directory
-define( 'ELODIN_STAFF', dirname( __FILE__ ) );
+define( 'ELODIN_STAFF_DIR', plugin_dir_path( __FILE__ ) );
+define( 'ELODIN_STAFF_PATH', plugin_dir_url( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'ELODIN_STAFF_VERSION', '1.0.3' );
+define ( 'ELODIN_STAFF_VERSION', '1.2.0' );
 
 // Add post types
 include_once( 'lib/post_type.php' );
@@ -38,9 +39,6 @@ include_once( 'lib/taxonomy.php' );
 
 // Add fields
 include_once( 'lib/fields.php' );
-
-// Admin columns
-include_once( 'lib/admin_columns.php' );
 
 // Add layouts
 include_once( 'layouts/staff.php' );
@@ -62,7 +60,21 @@ function elodin_staff_enqueue_scripts_styles() {
 
 }
 
-// Updater
+///////////////////////
+// ADMIN COLUMNS PRO //
+///////////////////////
+
+add_filter( 'acp/storage/file/directory/writable', '__return_false' ); //* CHANGE TO __return_true TO MAKE CHANGES
+add_filter( 'acp/storage/file/directory', 'elodin_staff_acp_storage_file_directory' );
+function elodin_staff_acp_storage_file_directory( $path ) {
+	// Use a writable path, directory will be created for you
+    return ELODIN_STAFF_DIR . '/acp-settings';
+}
+
+////////////////////
+// PLUGIN UPDATER //
+////////////////////
+
 require 'vendor/plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'https://github.com/jonschr/elodin-staff',

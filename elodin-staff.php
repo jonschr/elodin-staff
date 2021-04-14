@@ -3,7 +3,7 @@
 	Plugin Name: Elodin Staff
 	Plugin URI: https://elod.in
 	Description: Just another staff plugin
-	Version: 1.2.0
+	Version: 1.2.1
     Author: Jon Schroeder
     Author URI: https://elod.in
 
@@ -29,7 +29,7 @@ define( 'ELODIN_STAFF_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ELODIN_STAFF_PATH', plugin_dir_url( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'ELODIN_STAFF_VERSION', '1.2.0' );
+define ( 'ELODIN_STAFF_VERSION', '1.2.1' );
 
 // Add post types
 include_once( 'lib/post_type.php' );
@@ -64,12 +64,36 @@ function elodin_staff_enqueue_scripts_styles() {
 // ADMIN COLUMNS PRO //
 ///////////////////////
 
-add_filter( 'acp/storage/file/directory/writable', '__return_false' ); //* CHANGE TO __return_true TO MAKE CHANGES
-add_filter( 'acp/storage/file/directory', 'elodin_staff_acp_storage_file_directory' );
-function elodin_staff_acp_storage_file_directory( $path ) {
-	// Use a writable path, directory will be created for you
-    return ELODIN_STAFF_DIR . '/acp-settings';
-}
+// add_filter( 'acp/storage/file/directory/writable', '__return_false' ); //* CHANGE TO __return_true TO MAKE CHANGES
+// add_filter( 'acp/storage/file/directory', 'elodin_staff_acp_storage_file_directory' );
+// function elodin_staff_acp_storage_file_directory( $path ) {
+// 	// Use a writable path, directory will be created for you
+//     return ELODIN_STAFF_DIR . '/acp-settings';
+// }
+
+use AC\ListScreenRepository\Storage\ListScreenRepositoryFactory;
+use AC\ListScreenRepository\Rules;
+use AC\ListScreenRepository\Rule;
+add_filter( 'acp/storage/repositories', function( array $repositories, ListScreenRepositoryFactory $factory ) {
+    
+    //! Change $writable to true to allow changes to columns for the content types below
+    $writable = false;
+    
+    // Add rules to target individual list tables.
+    // Defaults to Rules::MATCH_ANY added here for clarity, other option is Rules::MATCH_ALL
+    $rules = new Rules( Rules::MATCH_ANY );
+    $rules->add_rule( new Rule\EqualType( 'staff' ) );
+    
+    // Register your repository to the stack
+    $repositories['elodin-staff'] = $factory->create(
+        ELODIN_STAFF_DIR . '/acp-settings',
+        $writable,
+        $rules
+    );
+    
+    return $repositories;
+    
+}, 10, 2 );
 
 ////////////////////
 // PLUGIN UPDATER //

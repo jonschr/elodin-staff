@@ -1,3 +1,6 @@
+### 1.2.1
+* ACP compat with other plugins that use local storage
+
 ### 1.2
 * Adding admin columns pro syncing, a few other quality of life updates
 

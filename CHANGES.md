@@ -1,3 +1,6 @@
+## 1.2.2
+* Fix padding in a couple of places
+
 ### 1.2.1
 * ACP compat with other plugins that use local storage
 

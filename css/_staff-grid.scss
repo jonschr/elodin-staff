@@ -1,5 +1,10 @@
 .loop-layout-staff_grid {
-    margin-top: 35px;
+    // margin-top: 35px;
+    padding-top: 0;
+
+    .entry {
+        padding: 0 !important;
+    }
 
     @include mobile {
         margin-top: 0;

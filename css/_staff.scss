@@ -25,7 +25,7 @@
             }
 
             .left {
-                max-width: calc( 100% / 3);
+                max-width: calc(100% / 3);
                 margin-right: 35px;
 
                 @include notdesktopwide {
@@ -52,9 +52,7 @@
         }
     }
 
-    .staff-content {
-        display: none;
-    }
+    .staff-content {}
 
     .jobtitle {
         text-transform: uppercase;

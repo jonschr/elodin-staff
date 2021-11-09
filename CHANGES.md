@@ -1,3 +1,6 @@
+## 1.3.0
+* Move to Fancybox 4
+
 ## 1.2.2
 * Fix padding in a couple of places
 

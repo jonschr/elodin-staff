@@ -3,11 +3,13 @@
 //* Output the scripts for the leadership section
 add_action( 'before_loop_layout_staff_grid', 'rb_staff_layout_scripts' );
 function rb_staff_layout_scripts( $args ) {
-	
-	// Use the lity lightbox
-    wp_enqueue_script( 'es-lity-script' );	
-	wp_enqueue_style( 'es-lity-style' );
+
+	//* Add the main styles
 	wp_enqueue_style( 'es-staff-style' );
+
+	//* Enqueue the fancybox scripts
+	wp_enqueue_style( 'elodin-staff-fancybox-theme' );
+    wp_enqueue_script( 'elodin-staff-fancybox-main' );
 }
 
 //* Output the leadership markup for each item
@@ -20,6 +22,7 @@ function rb_staff_layout() {
 	$email = get_post_meta( get_the_ID(), 'email_address', true );
 	$phone = get_post_meta( get_the_ID(), 'phone_number', true );
 	$linkedin = get_post_meta( get_the_ID(), 'linkedin', true );
+	$slug = get_post_field( 'post_name', get_post() );
 
 	$contactlabel = 'More information';
 	
@@ -36,7 +39,7 @@ function rb_staff_layout() {
 		//* No overlay at all if there's no content
 	    if ( $content ) {
 
-			printf( '<a href="#staff-%s" data-lity class="overlay-link">', get_the_ID() );
+			printf( '<a href="#" data-src="#staff-%s" data-fancybox="%s" class="overlay-link">', get_the_ID(), $slug );
 
 				printf('<span class="overlay-text">%s</span>', $contactlabel );
 
@@ -45,7 +48,7 @@ function rb_staff_layout() {
 
 		// Only do the link if there's a title
 	    if ( $content )
-			printf( '<a href="#staff-%s" data-lity class="more-link">', get_the_ID() ); 
+			printf( '<a href="#staff-%s" data-fancybox=%s" class="more-link">', get_the_ID(), $slug ); 
 
 				echo '<div class="more-link-wrap">';
 				
@@ -108,45 +111,15 @@ function rb_staff_layout() {
 			}
 
 			if ( $content )
-				printf( '<a href="#staff-%s" data-lity class="button button-small" style="margin-top: 20px;">%s</a>', get_the_ID(), $contactlabel );
+				printf( '<a href="#" data-src="#staff-%s" data-fancybox class="button button-small" style="margin-top: 20px;">%s</a>', get_the_ID(), $contactlabel );
 
 		echo '</div></div>';
 	}
 		
 	//* Output the content whether there's a thumbnail or no
 	if ( $content ) {
-		printf( '<div class="staff-content" id="staff-%s">', get_the_ID() );
-
-			if ( has_post_thumbnail() )
-				the_post_thumbnail( 'medium', ['class' => 'featured-right']);
-
-			printf( '<h2>%s</h2>', $title );
-
-			echo '<div class="info">';
-
-				if ( $jobtitle )
-					printf( '<p class="title">%s</p>', $jobtitle );
-
-				if ( $phone )
-					printf( '<p class="phone">%s</p>', $phone );
-
-				if ( $email || $linkedin ) {
-					echo '<p class="contact">';
-
-					if ( $email )
-						printf( '<a class="button" href="mailto:%s">Contact</a>', $email );
-
-					if ( $linkedin )
-						printf( '<a class="button" href="%s">Visit on LinkedIn</a>', $linkedin );
-
-					echo '</p>';
-				}
-
-			echo '</div>'; // .info
-
-			if ( $content )
-				echo apply_filters( 'the_content', $content );
-
-		echo '</div>';
+		do_action( 'elodin_do_staff_content' );
+		
 	}
 }
+

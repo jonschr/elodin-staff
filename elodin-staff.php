@@ -3,7 +3,7 @@
 	Plugin Name: Elodin Staff
 	Plugin URI: https://elod.in
 	Description: Just another staff plugin
-	Version: 1.2.2
+	Version: 1.3.0
     Author: Jon Schroeder
     Author URI: https://elod.in
 
@@ -29,7 +29,7 @@ define( 'ELODIN_STAFF_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ELODIN_STAFF_PATH', plugin_dir_url( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'ELODIN_STAFF_VERSION', '1.2.2' );
+define ( 'ELODIN_STAFF_VERSION', '1.3.0' );
 
 // Add post types
 include_once( 'lib/post_type.php' );
@@ -42,6 +42,7 @@ include_once( 'lib/fields.php' );
 
 // Add layouts
 include_once( 'layouts/staff.php' );
+include_once( 'layouts/staff_content.php' );
 include_once( 'layouts/staff_grid.php' );
 include_once( 'layouts/staff_simple.php' );
 
@@ -49,14 +50,13 @@ include_once( 'layouts/staff_simple.php' );
 add_action( 'wp_enqueue_scripts', 'elodin_staff_enqueue_scripts_styles' );
 function elodin_staff_enqueue_scripts_styles() {
 
-    //* Register lity style
-    wp_register_style( 'es-lity-style', plugin_dir_url( __FILE__ ) . 'lity/lity.min.css', array(), ELODIN_STAFF_VERSION, 'screen' );
-
-    //* Register lity script
-    wp_register_script( 'es-lity-script', plugin_dir_url( __FILE__ ) . 'lity/lity.min.js', array( 'jquery' ), ELODIN_STAFF_VERSION, true );
-
     //* Register layout styles
     wp_register_style( 'es-staff-style', plugin_dir_url( __FILE__ ) . 'css/staff-style.css', array(), ELODIN_STAFF_VERSION, 'screen' );
+    
+    //* Fancybox
+    wp_register_style( 'elodin-staff-fancybox-theme', plugin_dir_url( __FILE__ ) . '/vendor/fancybox/dist/fancybox.css', array(), ELODIN_STAFF_VERSION, 'screen' );
+    wp_register_script( 'elodin-staff-fancybox-main', plugin_dir_url( __FILE__ ) . '/vendor/fancybox/dist/fancybox.umd.js', array( 'jquery' ), ELODIN_STAFF_VERSION, true );
+    // wp_register_script( 'elodin-staff-fancybox-init', plugin_dir_url( __FILE__ ) . '/vendor/js/fancybox-init.js', array( 'fancybox-main' ), ELODIN_STAFF_VERSION, true );
 
 }
 

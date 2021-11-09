@@ -13,10 +13,12 @@ function staff_custom_excerpt_length( $length ) {
 add_action( 'before_loop_layout_staff', 'elodin_staff_layout_scripts' );
 function elodin_staff_layout_scripts( $args ) {
 	    
-    // Use the lity lightbox
-    wp_enqueue_script( 'es-lity-script' );	
-	wp_enqueue_style( 'es-lity-style' );
+    //* Add the main styles
 	wp_enqueue_style( 'es-staff-style' );
+
+	//* Enqueue the fancybox scripts
+	wp_enqueue_style( 'elodin-staff-fancybox-theme' );
+    wp_enqueue_script( 'elodin-staff-fancybox-main' );
 
 	add_filter( 'excerpt_length', 'staff_custom_excerpt_length', 999 );
 }
@@ -32,6 +34,7 @@ function elodin_staff_layout() {
 	$phone = get_post_meta( get_the_ID(), 'phone_number', true );
 	$excerpt = apply_filters( 'the_content', get_the_excerpt() );
 	$linkedin = get_post_meta( get_the_ID(), 'linkedin', true );
+	$slug = get_post_field( 'post_name', get_post() );
 
 	if ( has_post_thumbnail() ) echo '<div class="left">';
 
@@ -57,46 +60,13 @@ function elodin_staff_layout() {
 			echo '<p>';
 
 			if ( $content )
-				printf( '<a href="#staff-%s" class="overlay-link button button-small" data-lity>View Bio</a>', get_the_ID(), get_the_ID() );
+				printf( '<a href="#staff-%s" class="overlay-link button button-small" data-fancybox=%s" class="more-link">View Bio</a>', get_the_ID(), $slug ); 
 
 		if ( $content )
 			echo '</p>';
-		
-	// if ( $content )
-	// 	printf( '<a href="#" data-featherlight="#staff-%s" class="overlay-link button">Bio & Contact</a><a href="#" data-featherlight="#staff-%s" class="more-link"><span class="name hoverinfo">%s</span><span class="jobtitle hoverinfo">%s</span></a>', get_the_ID(), get_the_ID(), $title, $jobtitle );
 
 	echo '</div>'; // .right
 
-	if ( $content ) {
-		printf( '<div class="staff-content" id="staff-%s">', get_the_ID() );
-
-			edit_post_link( 'Edit staff member', '<span class="edit-link"><small>', '</small></span>' );
-
-			if ( has_post_thumbnail() )
-				the_post_thumbnail( 'medium', ['class' => 'featured-right']);
-
-			printf( '<h2>%s</h2>', $title );
-
-			if ( $jobtitle )
-				printf( '<p class="title">%s</p>', $jobtitle );
-
-			if ( $phone )
-				printf( '<p class="phone">%s</p>', $phone );
-
-			if ( $email || $linkedin ) {
-					echo '<p class="contact">';
-
-				if ( $email )
-					printf( '<a class="button" href="mailto:%s">Contact</a>', $email );
-
-				if ( $linkedin )
-					printf( '<a class="button" href="%s">Visit on LinkedIn</a>', $linkedin );
-
-				echo '</p>';
-			}
-
-			echo apply_filters( 'the_content', $content );
-
-		echo '</div>';
-	}
+	if ( $content )
+		do_action( 'elodin_do_staff_content' );
 }

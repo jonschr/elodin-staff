@@ -26,6 +26,13 @@ function elodin_staff_layout_scripts( $args ) {
 //* Output the leadership markup for each item
 add_action( 'add_loop_layout_staff', 'elodin_staff_layout' );
 function elodin_staff_layout() {
+	
+	//* Add the main styles
+	wp_enqueue_style( 'es-staff-style' );
+
+	//* Enqueue the fancybox scripts
+	wp_enqueue_style( 'elodin-staff-fancybox-theme' );
+    wp_enqueue_script( 'elodin-staff-fancybox-main' );
 
 	$jobtitle = get_post_meta( get_the_ID(), 'job_title', true );
 	$content = apply_filters( 'the_content', get_the_content() ); // note: when we output this, we're applying the filters again. That's intentional because Gutenberg is removing that filter once, and it manifests in breaking the first loop through the_content.
@@ -34,7 +41,7 @@ function elodin_staff_layout() {
 	$phone = get_post_meta( get_the_ID(), 'phone_number', true );
 	$excerpt = apply_filters( 'the_content', get_the_excerpt() );
 	$linkedin = get_post_meta( get_the_ID(), 'linkedin', true );
-	$slug = get_post_field( 'post_name', get_post() );
+	$slug = get_post_field( 'post_name', get_post() );	
 
 	if ( has_post_thumbnail() ) echo '<div class="left">';
 

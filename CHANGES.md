@@ -1,3 +1,6 @@
+## 1.3.1
+* Minor updates to layout, fixes to Fancybox 4
+
 ## 1.3.0
 * Move to Fancybox 4
 

@@ -2,6 +2,14 @@
 
 add_action( 'elodin_do_staff_content', 'elodin_staff_content' );
 function elodin_staff_content() {
+	
+	//* Add the main styles
+	wp_enqueue_style( 'es-staff-style' );
+
+	//* Enqueue the fancybox scripts
+	wp_enqueue_style( 'elodin-staff-fancybox-theme' );
+    wp_enqueue_script( 'elodin-staff-fancybox-main' );
+	
 	global $post;
 	
 	$jobtitle = get_post_meta( get_the_ID(), 'job_title', true );

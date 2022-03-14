@@ -17,14 +17,15 @@ function elodin_staff_simple_layout_scripts( $args ) {
 add_action( 'add_loop_layout_staff_simple', 'elodin_staff_simple_layout' );
 function elodin_staff_simple_layout() {
 
-	$jobtitle = get_post_meta( get_the_ID(), 'job_title', true );
-	$content = apply_filters( 'the_content', apply_filters( 'the_content', get_the_content() ) );
-	$title = get_the_title();
-	$email = get_post_meta( get_the_ID(), 'email_address', true );
-	$phone = get_post_meta( get_the_ID(), 'phone_number', true );
-	$excerpt = apply_filters( 'the_content', get_the_excerpt() );
-	$linkedin = get_post_meta( get_the_ID(), 'linkedin', true );
-	$slug = get_post_field( 'post_name', get_post() );
+	$jobtitle = esc_html( get_post_meta( get_the_ID(), 'job_title', true ) );
+	$content = apply_filters( 'the_content', wp_kses_post( get_the_content() ) ); // note: when we output this, we're applying the filters again. That's intentional because Gutenberg is removing that filter once, and it manifests in breaking the first loop through the_content.
+	$title = esc_html( get_the_title() );
+	$email = esc_html( get_post_meta( get_the_ID(), 'email_address', true ) );
+	$phone = esc_html( get_post_meta( get_the_ID(), 'phone_number', true ) );
+	$linkedin = esc_url( get_post_meta( get_the_ID(), 'linkedin', true ) );
+	$twitter = esc_url( get_post_meta( get_the_ID(), 'twitter', true ) );
+	$facebook = esc_url( get_post_meta( get_the_ID(), 'facebook', true ) );
+	$slug = esc_html( get_post_field( 'post_name', get_post() ) );
 
     //* Main content
     if ( $title )
@@ -32,11 +33,6 @@ function elodin_staff_simple_layout() {
 
     if ( $jobtitle )
         printf( '<p class="jobtitle">%s</p>', $jobtitle );
-
-    // if ( $excerpt )
-    //     echo $excerpt;
-
-    // edit_post_link( 'Edit staff member', '<span class="edit-link"><small>', '</small></span>' );
 
     //* Lightbox trigger
     if ( $content )

@@ -1,3 +1,10 @@
+## 1.4
+* Adding ACF
+* Adding new fields for facebook and twitter
+* Double-checking to make sure everything is being escaped properly in all views
+* Adding documentation link to the sidebar
+* Minor styles updates to accommodate more buttons
+
 ## 1.3.1
 * Minor updates to layout, fixes to Fancybox 4
 

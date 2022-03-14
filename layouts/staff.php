@@ -34,21 +34,18 @@ function elodin_staff_layout() {
 	wp_enqueue_style( 'elodin-staff-fancybox-theme' );
     wp_enqueue_script( 'elodin-staff-fancybox-main' );
 
-	$jobtitle = get_post_meta( get_the_ID(), 'job_title', true );
-	$content = apply_filters( 'the_content', get_the_content() ); // note: when we output this, we're applying the filters again. That's intentional because Gutenberg is removing that filter once, and it manifests in breaking the first loop through the_content.
-	$title = get_the_title();
-	$email = get_post_meta( get_the_ID(), 'email_address', true );
-	$phone = get_post_meta( get_the_ID(), 'phone_number', true );
-	$excerpt = apply_filters( 'the_content', get_the_excerpt() );
-	$linkedin = get_post_meta( get_the_ID(), 'linkedin', true );
-	$slug = get_post_field( 'post_name', get_post() );	
+	$jobtitle = esc_html( get_post_meta( get_the_ID(), 'job_title', true ) );
+	$content = apply_filters( 'the_content', wp_kses_post( get_the_content() ) ); // note: when we output this, we're applying the filters again. That's intentional because Gutenberg is removing that filter once, and it manifests in breaking the first loop through the_content.
+	$title = esc_html( get_the_title() );
+	$email = esc_html( get_post_meta( get_the_ID(), 'email_address', true ) );
+	$phone = esc_html( get_post_meta( get_the_ID(), 'phone_number', true ) );
+	$linkedin = esc_url( get_post_meta( get_the_ID(), 'linkedin', true ) );
+	$twitter = esc_url( get_post_meta( get_the_ID(), 'twitter', true ) );
+	$facebook = esc_url( get_post_meta( get_the_ID(), 'facebook', true ) );
+	$slug = esc_html( get_post_field( 'post_name', get_post() ) );
 
-	if ( has_post_thumbnail() ) echo '<div class="left">';
-
-			if ( has_post_thumbnail() ) 
-			    printf( '<div class="featured-image" style="background-image:url( %s )"></div>', get_the_post_thumbnail_url( get_the_ID(), 'large' ) );
-		
-	if ( has_post_thumbnail() ) echo '</div>'; // .left
+	if ( has_post_thumbnail() ) 
+		printf( '<div class="left"><div class="featured-image" style="background-image:url( %s )"></div></div>', get_the_post_thumbnail_url( get_the_ID(), 'large' ) );
 
 	echo '<div class="right">';
 
@@ -61,16 +58,10 @@ function elodin_staff_layout() {
 		if ( $excerpt )
 			echo $excerpt;
 
+		if ( $content )
+			printf( '<p><a href="#" data-src="#staff-%s" data-fancybox="%s" class="button">More information</a></p>', get_the_ID(), $slug );
+			
 		edit_post_link( 'Edit staff member', '<span class="edit-link"><small>', '</small></span>' );
-
-		if ( $content )
-			echo '<p>';
-
-			if ( $content )
-				printf( '<a href="#staff-%s" class="overlay-link button button-small" data-fancybox=%s" class="more-link">View Bio</a>', get_the_ID(), $slug ); 
-
-		if ( $content )
-			echo '</p>';
 
 	echo '</div>'; // .right
 

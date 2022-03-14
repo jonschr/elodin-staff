@@ -12,15 +12,16 @@ function elodin_staff_content() {
 	
 	global $post;
 	
-	$jobtitle = get_post_meta( get_the_ID(), 'job_title', true );
-	$content = apply_filters( 'the_content', get_the_content() ); // note: when we output this, we're applying the filters again. That's intentional because Gutenberg is removing that filter once, and it manifests in breaking the first loop through the_content.
-	$title = get_the_title();
-	$email = get_post_meta( get_the_ID(), 'email_address', true );
-	$phone = get_post_meta( get_the_ID(), 'phone_number', true );
-	$linkedin = get_post_meta( get_the_ID(), 'linkedin', true );
-	// $slug = get_post_field( 'post_name', get_post() );
+	$jobtitle = esc_html( get_post_meta( get_the_ID(), 'job_title', true ) );
+	$content = apply_filters( 'the_content', wp_kses_post( get_the_content() ) ); // note: when we output this, we're applying the filters again. That's intentional because Gutenberg is removing that filter once, and it manifests in breaking the first loop through the_content.
+	$title = esc_html( get_the_title() );
+	$email = esc_html( get_post_meta( get_the_ID(), 'email_address', true ) );
+	$phone = esc_html( get_post_meta( get_the_ID(), 'phone_number', true ) );
+	$linkedin = esc_url( get_post_meta( get_the_ID(), 'linkedin', true ) );
+	$twitter = esc_url( get_post_meta( get_the_ID(), 'twitter', true ) );
+	$facebook = esc_url( get_post_meta( get_the_ID(), 'facebook', true ) );
 	
-	printf( '<div class="staff-content" id="staff-%s">', get_the_ID() );
+	printf( '<div class="staff-content" style="display: none;" id="staff-%s">', get_the_ID() );
 		
 		if ( has_post_thumbnail() )
 			the_post_thumbnail( 'medium', ['class' => 'featured-right']);			
@@ -42,7 +43,13 @@ function elodin_staff_content() {
 					printf( '<a class="button" href="mailto:%s">Contact</a>', $email );
 
 				if ( $linkedin )
-					printf( '<a class="button" href="%s">Visit on LinkedIn</a>', $linkedin );
+					printf( '<a class="button" target="_blank" href="%s">LinkedIn</a>', $linkedin );
+					
+				if ( $twitter )
+					printf( '<a class="button" target="_blank" href="%s">Twitter</a>', $twitter );
+					
+				if ( $facebook )
+					printf( '<a class="button" target="_blank" href="%s">Facebook</a>', $facebook );
 
 				echo '</p>';
 			}

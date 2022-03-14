@@ -3,7 +3,7 @@
 	Plugin Name: Elodin Staff
 	Plugin URI: https://elod.in
 	Description: Just another staff plugin
-	Version: 1.3.1
+	Version: 1.4
     Author: Jon Schroeder
     Author URI: https://elod.in
 
@@ -29,7 +29,7 @@ define( 'ELODIN_STAFF_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ELODIN_STAFF_PATH', plugin_dir_url( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'ELODIN_STAFF_VERSION', '1.3.1' );
+define ( 'ELODIN_STAFF_VERSION', '1.4' );
 
 // Add post types
 include_once( 'lib/post_type.php' );
@@ -37,8 +37,11 @@ include_once( 'lib/post_type.php' );
 // Add taxonomy
 include_once( 'lib/taxonomy.php' );
 
+// Add documentation link
+include_once( 'lib/documentation-link.php' );
+
 // Add fields
-include_once( 'lib/fields.php' );
+// include_once( 'lib/fields.php' );
 
 // Add layouts
 include_once( 'layouts/staff.php' );
@@ -58,6 +61,54 @@ function elodin_staff_enqueue_scripts_styles() {
     wp_register_script( 'elodin-staff-fancybox-main', plugin_dir_url( __FILE__ ) . '/vendor/fancybox/dist/fancybox.umd.js', array( 'jquery' ), ELODIN_STAFF_VERSION, true );
     // wp_register_script( 'elodin-staff-fancybox-init', plugin_dir_url( __FILE__ ) . '/vendor/js/fancybox-init.js', array( 'fancybox-main' ), ELODIN_STAFF_VERSION, true );
 
+}
+
+/////////////////
+// INCLUDE ACF //
+/////////////////
+
+// Define path and URL to the ACF plugin.
+define( 'ELODIN_STAFF_ACF_PATH', plugin_dir_path( __FILE__ ) . 'vendor/acf/' );
+define( 'ELODIN_STAFF_ACF_URL', plugin_dir_url( __FILE__ ) . 'vendor/acf/' );
+
+if( !class_exists('ACF') ) {
+    
+    // Include the ACF plugin.
+    include_once( ELODIN_STAFF_ACF_PATH . 'acf.php' );
+    
+    // Customize the url setting to fix incorrect asset URLs.
+    add_filter('acf/settings/url', 'elodin_staff_acf_settings_url');
+    
+}
+
+function elodin_staff_acf_settings_url( $url ) {
+    return ELODIN_STAFF_ACF_URL;
+}
+
+//! UNCOMMENT THIS FILTER TO SAVE ACF FIELDS TO PLUGIN
+// add_filter('acf/settings/save_json', 'elodin_staff_acf_json_save_point');
+function elodin_staff_acf_json_save_point( $path ) {
+    
+    // update path
+    $path = ELODIN_STAFF_DIR . 'acf-json';
+    
+    // return
+    return $path;
+    
+}
+
+add_filter( 'acf/settings/load_json', 'elodin_staff_acf_json_load_point' );
+function elodin_staff_acf_json_load_point( $paths ) {
+    
+    // remove original path (optional)
+    unset($paths[0]);
+    
+    // append path
+    $paths[] = ELODIN_STAFF_DIR . 'acf-json';
+    
+    // return
+    return $paths;
+    
 }
 
 ///////////////////////

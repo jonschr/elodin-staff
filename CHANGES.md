@@ -1,3 +1,6 @@
+## 1.4.1
+* Adding the excerpt to the staff layout, which was accidentally dropped
+
 ## 1.4
 * Adding ACF
 * Adding new fields for facebook and twitter

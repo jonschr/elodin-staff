@@ -43,6 +43,7 @@ function elodin_staff_layout() {
 	$twitter = esc_url( get_post_meta( get_the_ID(), 'twitter', true ) );
 	$facebook = esc_url( get_post_meta( get_the_ID(), 'facebook', true ) );
 	$slug = esc_html( get_post_field( 'post_name', get_post() ) );
+	$excerpt = apply_filters( 'the_content', wp_kses_post( get_the_excerpt() ) );
 
 	if ( has_post_thumbnail() ) 
 		printf( '<div class="left"><div class="featured-image" style="background-image:url( %s )"></div></div>', get_the_post_thumbnail_url( get_the_ID(), 'large' ) );

@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'version' => '5.6.4',
+  'version' => '5.7',
   'title' => 'Staff',
   'type' => 'staff',
-  'id' => '60637a262b9d8',
-  'updated' => 1647291661,
+  'id' => '627de26660feb',
+  'updated' => 1652417395,
   'columns' => 
   array (
     '60637acb45a1cc' => 
@@ -58,11 +58,10 @@ return array (
     ),
     '622fa513cc0830' => 
     array (
-      'type' => 'column-acf_field',
+      'type' => 'field_622fa30cd7316',
       'label' => 'Job title',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_622fa30cd7316',
       'character_limit' => '20',
       'export' => 'off',
       'sort' => 'off',
@@ -75,11 +74,10 @@ return array (
     ),
     '622fa5201ba5e4' => 
     array (
-      'type' => 'column-acf_field',
+      'type' => 'field_622fa31ad7317',
       'label' => 'Phone number',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_622fa31ad7317',
       'character_limit' => '20',
       'export' => 'off',
       'sort' => 'off',
@@ -92,11 +90,10 @@ return array (
     ),
     '622fa50b7020c4' => 
     array (
-      'type' => 'column-acf_field',
+      'type' => 'field_622fa329d7318',
       'label' => 'Email',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_622fa329d7318',
       'export' => 'off',
       'sort' => 'off',
       'edit' => 'on',
@@ -108,11 +105,11 @@ return array (
     ),
     '622fa52b2c0830' => 
     array (
-      'type' => 'column-acf_field',
+      'type' => 'field_622fa339d7319',
       'label' => 'LinkedIn URL',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_622fa339d7319',
+      'link_label' => '',
       'export' => 'off',
       'sort' => 'off',
       'edit' => 'on',
@@ -124,11 +121,11 @@ return array (
     ),
     '622fa53d5e3540' => 
     array (
-      'type' => 'column-acf_field',
+      'type' => 'field_622fa359d731a',
       'label' => 'Twitter URL',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_622fa359d731a',
+      'link_label' => '',
       'export' => 'off',
       'sort' => 'off',
       'edit' => 'on',
@@ -140,11 +137,11 @@ return array (
     ),
     '622fa53497ced8' => 
     array (
-      'type' => 'column-acf_field',
+      'type' => 'field_622fa362d731b',
       'label' => 'Facebook URL',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_622fa362d731b',
+      'link_label' => '',
       'export' => 'off',
       'sort' => 'off',
       'edit' => 'on',
@@ -222,6 +219,7 @@ return array (
     'hide_submenu' => 'off',
     'hide_search' => 'off',
     'hide_bulk_actions' => 'off',
+    'resize_columns' => 'off',
     'horizontal_scrolling' => 'off',
     'sorting' => '0',
     'sorting_order' => 'asc',

@@ -3,7 +3,7 @@
 	Plugin Name: Elodin Staff
 	Plugin URI: https://elod.in
 	Description: Just another staff plugin
-	Version: 1.4.1
+	Version: 1.4.2
     Author: Jon Schroeder
     Author URI: https://elod.in
 

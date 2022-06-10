@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'version' => '5.6.4',
+  'version' => '5.7',
   'title' => 'Staff',
   'type' => 'staff',
   'id' => '60637a262b9d8',
-  'updated' => 1647291661,
+  'updated' => 1654884665,
   'columns' => 
   array (
     '60637acb45a1cc' => 
@@ -222,6 +222,7 @@ return array (
     'hide_submenu' => 'off',
     'hide_search' => 'off',
     'hide_bulk_actions' => 'off',
+    'resize_columns' => 'off',
     'horizontal_scrolling' => 'off',
     'sorting' => '0',
     'sorting_order' => 'asc',

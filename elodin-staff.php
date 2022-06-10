@@ -29,7 +29,7 @@ define( 'ELODIN_STAFF_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ELODIN_STAFF_PATH', plugin_dir_url( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'ELODIN_STAFF_VERSION', '1.4.1' );
+define ( 'ELODIN_STAFF_VERSION', '1.4.2' );
 
 // Add post types
 include_once( 'lib/post_type.php' );

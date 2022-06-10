@@ -1,6 +1,6 @@
 ## 1.4.2
 
--   Updating Admin Columns Pro integration
+-   Updating Admin Columns to v3 to allow for inline editing again.
 
 ## 1.4.1
 

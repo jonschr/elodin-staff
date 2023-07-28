@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'version' => '5.7',
+  'version' => '6.0.3',
   'title' => 'Staff',
   'type' => 'staff',
   'id' => '627de26660feb',
-  'updated' => 1652417395,
+  'updated' => 1690517051,
   'columns' => 
   array (
     '60637acb45a1cc' => 
@@ -210,18 +210,23 @@ return array (
   array (
     'hide_inline_edit' => 'off',
     'hide_bulk_edit' => 'off',
+    'hide_bulk_delete' => 'off',
     'hide_filters' => 'off',
     'hide_filter_post_date' => 'on',
     'hide_smart_filters' => 'off',
     'hide_segments' => 'off',
     'hide_export' => 'off',
+    'hide_conditional_formatting' => 'off',
     'hide_new_inline' => 'off',
     'hide_submenu' => 'off',
     'hide_search' => 'off',
     'hide_bulk_actions' => 'off',
     'resize_columns' => 'off',
+    'column_order' => 'off',
+    'hide_row_actions' => 'off',
     'horizontal_scrolling' => 'off',
     'sorting' => '0',
     'sorting_order' => 'asc',
+    'primary_column' => '',
   ),
 );

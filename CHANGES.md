@@ -1,3 +1,7 @@
+## 1.5
+
+-   Updating Admin Columns' columns
+
 ## 1.4.2
 
 -   Updating Admin Columns to v3 to allow for inline editing again.

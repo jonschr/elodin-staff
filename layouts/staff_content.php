@@ -6,9 +6,11 @@ function elodin_staff_content() {
 	//* Add the main styles
 	wp_enqueue_style( 'es-staff-style' );
 
-	//* Enqueue the fancybox scripts
-	wp_enqueue_style( 'elodin-staff-fancybox-theme' );
-    wp_enqueue_script( 'elodin-staff-fancybox-main' );
+	//* Fancybox
+	wp_enqueue_style( 'elodin-staff-glightbox-theme' );
+	wp_enqueue_script( 'elodin-staff-glightbox-main' );
+	wp_enqueue_script( 'elodin-staff-glightbox-init' );
+	
 	
 	global $post;
 	
@@ -23,8 +25,8 @@ function elodin_staff_content() {
 	
 	printf( '<div class="staff-content" style="display: none;" id="staff-%s">', get_the_ID() );
 		
-		if ( has_post_thumbnail() )
-			the_post_thumbnail( 'medium', ['class' => 'featured-right']);			
+		// if ( has_post_thumbnail() )
+		// 	the_post_thumbnail( 'medium', ['class' => 'featured-right']);			
 			
 		echo '<div class="info">';
 		

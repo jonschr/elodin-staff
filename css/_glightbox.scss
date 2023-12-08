@@ -1,0 +1,10 @@
+html.glightbox-open {
+	overflow: hidden !important;
+	height: 100% !important;
+}
+
+.staff-content.ginlined-content {
+	@include desktop {
+		padding: 50px;
+	}
+}

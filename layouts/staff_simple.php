@@ -7,10 +7,6 @@ function elodin_staff_simple_layout_scripts( $args ) {
     //* Add the main styles
 	wp_enqueue_style( 'es-staff-style' );
 
-	//* Enqueue the fancybox scripts
-	wp_enqueue_style( 'elodin-staff-fancybox-theme' );
-    wp_enqueue_script( 'elodin-staff-fancybox-main' );
-
 }
 
 //* Output the leadership markup for each item
@@ -36,7 +32,8 @@ function elodin_staff_simple_layout() {
 
     //* Lightbox trigger
     if ( $content )
-		printf( '<a href="#" data-src="#staff-%s" data-fancybox="%s" class="overlay-link"><span class="">View Bio</span></a>', get_the_ID(), $slug );
+		printf( '<a href="#staff-%s" class="overlay-link staff-lightbox" data-gallery="%s"><span class="">View Bio</span></a>', get_the_ID(), get_the_ID() );
+		// printf( '<a href="#" data-src="#staff-%s" data-fancybox="%s" class="overlay-link"><span class="">View Bio</span></a>', get_the_ID(), $slug );
         // printf( '<a href="#staff-%s" class="overlay-link" data-lity><span class="">View Bio</span></a>', get_the_ID(), get_the_ID() );
         
     //* Lightbox

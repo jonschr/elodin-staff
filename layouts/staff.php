@@ -16,10 +16,6 @@ function elodin_staff_layout_scripts( $args ) {
     //* Add the main styles
 	wp_enqueue_style( 'es-staff-style' );
 
-	//* Enqueue the fancybox scripts
-	wp_enqueue_style( 'elodin-staff-fancybox-theme' );
-    wp_enqueue_script( 'elodin-staff-fancybox-main' );
-
 	add_filter( 'excerpt_length', 'staff_custom_excerpt_length', 999 );
 }
 
@@ -60,7 +56,8 @@ function elodin_staff_layout() {
 			echo $excerpt;
 
 		if ( $content )
-			printf( '<p><a href="#" data-src="#staff-%s" data-fancybox="%s" class="button">More information</a></p>', get_the_ID(), $slug );
+			printf( '<a href="#staff-%s" class="staff-lightbox button" data-gallery="%s">More information</a></p>', get_the_ID(), get_the_ID() );
+			// printf( '<p><a href="#" data-src="#staff-%s" data-fancybox="%s" class="button">More information</a></p>', get_the_ID(), $slug );
 			
 		edit_post_link( 'Edit staff member', '<span class="edit-link"><small>', '</small></span>' );
 

@@ -3,25 +3,25 @@
 	Plugin Name: Elodin Staff
 	Plugin URI: https://elod.in
 	Description: Just another staff plugin
-	Version: 1.5.2
-    Author: Jon Schroeder
-    Author URI: https://elod.in
+	Version: 1.5.3
+	Author: Jon Schroeder
+	Author URI: https://elod.in
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation; either version 2 of the License, or
+	(at your option) any later version.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU General Public License for more details.
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
 */
 
 
 /* Prevent direct access to the plugin */
 if ( !defined( 'ABSPATH' ) ) {
-    die( "Sorry, you are not allowed to access this page directly." );
+	die( "Sorry, you are not allowed to access this page directly." );
 }
 
 // Plugin directory
@@ -29,7 +29,7 @@ define( 'ELODIN_STAFF_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ELODIN_STAFF_PATH', plugin_dir_url( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'ELODIN_STAFF_VERSION', '1.5.2' );
+define ( 'ELODIN_STAFF_VERSION', '1.5.3' );
 
 // Add post types
 include_once( 'lib/post_type.php' );
@@ -53,13 +53,13 @@ include_once( 'layouts/staff_simple.php' );
 add_action( 'wp_enqueue_scripts', 'elodin_staff_enqueue_scripts_styles' );
 function elodin_staff_enqueue_scripts_styles() {
 
-    //* Register layout styles
-    wp_register_style( 'es-staff-style', plugin_dir_url( __FILE__ ) . 'css/staff-style.css', array(), ELODIN_STAFF_VERSION, 'screen' );
-    
-    //* Fancybox
-    wp_register_style( 'elodin-staff-fancybox-theme', plugin_dir_url( __FILE__ ) . '/vendor/fancybox/dist/fancybox.css', array(), ELODIN_STAFF_VERSION, 'screen' );
-    wp_register_script( 'elodin-staff-fancybox-main', plugin_dir_url( __FILE__ ) . '/vendor/fancybox/dist/fancybox.umd.js', array( 'jquery' ), ELODIN_STAFF_VERSION, true );
-    // wp_register_script( 'elodin-staff-fancybox-init', plugin_dir_url( __FILE__ ) . '/vendor/js/fancybox-init.js', array( 'fancybox-main' ), ELODIN_STAFF_VERSION, true );
+	//* Register layout styles
+	wp_register_style( 'es-staff-style', plugin_dir_url( __FILE__ ) . 'css/staff-style.css', array(), ELODIN_STAFF_VERSION, 'screen' );
+	
+	//* Fancybox
+	wp_enqueue_style( 'elodin-staff-glightbox-theme', 'https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css', array(), ELODIN_STAFF_VERSION, 'screen' );
+	wp_enqueue_script( 'elodin-staff-glightbox-main', 'https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js', '', ELODIN_STAFF_VERSION, true );
+	wp_enqueue_script( 'elodin-staff-glightbox-init', plugin_dir_url( __FILE__ ) . 'js/elodin-staff-glightbox-init.js', array('elodin-staff-glightbox-main'), ELODIN_STAFF_VERSION, true );
 	
 	
 
@@ -74,43 +74,43 @@ define( 'ELODIN_STAFF_ACF_PATH', plugin_dir_path( __FILE__ ) . 'vendor/acf/' );
 define( 'ELODIN_STAFF_ACF_URL', plugin_dir_url( __FILE__ ) . 'vendor/acf/' );
 
 if( !class_exists('ACF') ) {
-    
-    // Include the ACF plugin.
-    include_once( ELODIN_STAFF_ACF_PATH . 'acf.php' );
-    
-    // Customize the url setting to fix incorrect asset URLs.
-    add_filter('acf/settings/url', 'elodin_staff_acf_settings_url');
-    
+	
+	// Include the ACF plugin.
+	include_once( ELODIN_STAFF_ACF_PATH . 'acf.php' );
+	
+	// Customize the url setting to fix incorrect asset URLs.
+	add_filter('acf/settings/url', 'elodin_staff_acf_settings_url');
+	
 }
 
 function elodin_staff_acf_settings_url( $url ) {
-    return ELODIN_STAFF_ACF_URL;
+	return ELODIN_STAFF_ACF_URL;
 }
 
 //! UNCOMMENT THIS FILTER TO SAVE ACF FIELDS TO PLUGIN
 // add_filter('acf/settings/save_json', 'elodin_staff_acf_json_save_point');
 function elodin_staff_acf_json_save_point( $path ) {
-    
-    // update path
-    $path = ELODIN_STAFF_DIR . 'acf-json';
-    
-    // return
-    return $path;
-    
+	
+	// update path
+	$path = ELODIN_STAFF_DIR . 'acf-json';
+	
+	// return
+	return $path;
+	
 }
 
 add_filter( 'acf/settings/load_json', 'elodin_staff_acf_json_load_point' );
 function elodin_staff_acf_json_load_point( $paths ) {
-    
-    // remove original path (optional)
-    unset($paths[0]);
-    
-    // append path
-    $paths[] = ELODIN_STAFF_DIR . 'acf-json';
-    
-    // return
-    return $paths;
-    
+	
+	// remove original path (optional)
+	unset($paths[0]);
+	
+	// append path
+	$paths[] = ELODIN_STAFF_DIR . 'acf-json';
+	
+	// return
+	return $paths;
+	
 }
 
 ///////////////////////
@@ -128,24 +128,24 @@ use AC\ListScreenRepository\Storage\ListScreenRepositoryFactory;
 use AC\ListScreenRepository\Rules;
 use AC\ListScreenRepository\Rule;
 add_filter( 'acp/storage/repositories', function( array $repositories, ListScreenRepositoryFactory $factory ) {
-    
-    //! Change $writable to true to allow changes to columns for the content types below
-    $writable = false;
-    
-    // Add rules to target individual list tables.
-    // Defaults to Rules::MATCH_ANY added here for clarity, other option is Rules::MATCH_ALL
-    $rules = new Rules( Rules::MATCH_ANY );
-    $rules->add_rule( new Rule\EqualType( 'staff' ) );
-    
-    // Register your repository to the stack
-    $repositories['elodin-staff'] = $factory->create(
-        ELODIN_STAFF_DIR . '/acp-settings',
-        $writable,
-        $rules
-    );
-    
-    return $repositories;
-    
+	
+	//! Change $writable to true to allow changes to columns for the content types below
+	$writable = false;
+	
+	// Add rules to target individual list tables.
+	// Defaults to Rules::MATCH_ANY added here for clarity, other option is Rules::MATCH_ALL
+	$rules = new Rules( Rules::MATCH_ANY );
+	$rules->add_rule( new Rule\EqualType( 'staff' ) );
+	
+	// Register your repository to the stack
+	$repositories['elodin-staff'] = $factory->create(
+		ELODIN_STAFF_DIR . '/acp-settings',
+		$writable,
+		$rules
+	);
+	
+	return $repositories;
+	
 }, 10, 2 );
 
 ////////////////////

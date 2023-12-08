@@ -1,3 +1,7 @@
+## 1.5.3
+
+-   Switching to the open source glightbox library and away from fancybox
+
 ## 1.5.2
 
 -   Updating various fixes sent in by Github

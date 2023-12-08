@@ -60,6 +60,8 @@ function elodin_staff_enqueue_scripts_styles() {
     wp_register_style( 'elodin-staff-fancybox-theme', plugin_dir_url( __FILE__ ) . '/vendor/fancybox/dist/fancybox.css', array(), ELODIN_STAFF_VERSION, 'screen' );
     wp_register_script( 'elodin-staff-fancybox-main', plugin_dir_url( __FILE__ ) . '/vendor/fancybox/dist/fancybox.umd.js', array( 'jquery' ), ELODIN_STAFF_VERSION, true );
     // wp_register_script( 'elodin-staff-fancybox-init', plugin_dir_url( __FILE__ ) . '/vendor/js/fancybox-init.js', array( 'fancybox-main' ), ELODIN_STAFF_VERSION, true );
+	
+	
 
 }
 

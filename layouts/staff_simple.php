@@ -36,7 +36,8 @@ function elodin_staff_simple_layout() {
 
     //* Lightbox trigger
     if ( $content )
-		printf( '<a href="#" data-src="#staff-%s" data-fancybox="%s" class="overlay-link"><span class="">View Bio</span></a>', get_the_ID(), $slug );
+		printf( '<a href="#staff-%s" class="overlay-link staff-lightbox" data-gallery="%s"><span class="">View Bio</span></a>', get_the_ID(), get_the_ID() );
+		// printf( '<a href="#" data-src="#staff-%s" data-fancybox="%s" class="overlay-link"><span class="">View Bio</span></a>', get_the_ID(), $slug );
         // printf( '<a href="#staff-%s" class="overlay-link" data-lity><span class="">View Bio</span></a>', get_the_ID(), get_the_ID() );
         
     //* Lightbox

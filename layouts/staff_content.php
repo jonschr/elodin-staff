@@ -21,7 +21,7 @@ function elodin_staff_content() {
 	$twitter = esc_url( get_post_meta( get_the_ID(), 'twitter', true ) );
 	$facebook = esc_url( get_post_meta( get_the_ID(), 'facebook', true ) );
 	
-	printf( '<div class="staff-content" id="staff-%s">', get_the_ID() );
+	printf( '<div class="staff-content" style="display: none;" id="staff-%s">', get_the_ID() );
 		
 		// if ( has_post_thumbnail() )
 		// 	the_post_thumbnail( 'medium', ['class' => 'featured-right']);			

@@ -60,7 +60,8 @@ function elodin_staff_layout() {
 			echo $excerpt;
 
 		if ( $content )
-			printf( '<p><a href="#" data-src="#staff-%s" data-fancybox="%s" class="button">More information</a></p>', get_the_ID(), $slug );
+			printf( '<a href="#staff-%s" class="staff-lightbox button" data-gallery="%s">More information</a></p>', get_the_ID(), get_the_ID() );
+			// printf( '<p><a href="#" data-src="#staff-%s" data-fancybox="%s" class="button">More information</a></p>', get_the_ID(), $slug );
 			
 		edit_post_link( 'Edit staff member', '<span class="edit-link"><small>', '</small></span>' );
 

@@ -1,3 +1,7 @@
+## 1.5.2
+
+-   Updating various fixes sent in by Github
+
 ## 1.5.1
 
 -   Updating ACF

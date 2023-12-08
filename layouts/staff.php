@@ -16,10 +16,6 @@ function elodin_staff_layout_scripts( $args ) {
     //* Add the main styles
 	wp_enqueue_style( 'es-staff-style' );
 
-	//* Enqueue the fancybox scripts
-	wp_enqueue_style( 'elodin-staff-fancybox-theme' );
-    wp_enqueue_script( 'elodin-staff-fancybox-main' );
-
 	add_filter( 'excerpt_length', 'staff_custom_excerpt_length', 999 );
 }
 

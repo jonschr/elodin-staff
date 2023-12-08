@@ -6,9 +6,11 @@ function elodin_staff_content() {
 	//* Add the main styles
 	wp_enqueue_style( 'es-staff-style' );
 
-	//* Enqueue the fancybox scripts
-	wp_enqueue_style( 'elodin-staff-fancybox-theme' );
-    wp_enqueue_script( 'elodin-staff-fancybox-main' );
+	//* Fancybox
+	wp_enqueue_style( 'elodin-staff-glightbox-theme' );
+	wp_enqueue_script( 'elodin-staff-glightbox-main' );
+	wp_enqueue_script( 'elodin-staff-glightbox-init' );
+	
 	
 	global $post;
 	

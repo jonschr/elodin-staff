@@ -22,8 +22,13 @@ function elodin_staff_content() {
 	$linkedin = esc_url( get_post_meta( get_the_ID(), 'linkedin', true ) );
 	$twitter = esc_url( get_post_meta( get_the_ID(), 'twitter', true ) );
 	$facebook = esc_url( get_post_meta( get_the_ID(), 'facebook', true ) );
+	$background = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+	
 	
 	printf( '<div class="staff-content" style="display: none;" id="staff-%s">', get_the_ID() );
+	
+		if ( $background ) 
+			printf( '<div class="photo-wrap"><div class="photo-large" style="background-image:url( %s )"></div></div>', $background );
 		
 		// if ( has_post_thumbnail() )
 		// 	the_post_thumbnail( 'medium', ['class' => 'featured-right']);			

@@ -7,4 +7,45 @@ html.glightbox-open {
 	@include desktop {
 		padding: 50px;
 	}
+
+	.photo-wrap {
+		clear: none !important;
+		float: right;
+		margin: 0 0 25px 25px;
+
+		@include mobile {
+			display: none;
+		}
+
+		.photo-large {
+			height: 0;
+			padding-top: 130%;
+			background-size: cover;
+			background-position: center center;
+			width: 300px;
+			display: block;
+		}
+	}
+
+	.info > * {
+		margin-bottom: 5px;
+	}
+
+	.info > .contact {
+		margin-top: 20px;
+
+		.button {
+			@include notmobile {
+				margin-right: 5px;
+			}
+		}
+	}
+}
+
+.glightbox-container .gslide,
+.gslide-image img {
+	-webkit-user-select: auto !important;
+	-moz-user-select: auto !important;
+	-ms-user-select: auto !important;
+	user-select: auto !important;
 }

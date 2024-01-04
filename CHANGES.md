@@ -1,3 +1,8 @@
+## 1.5.4
+
+-   Making lightbox text selectable
+-   Re-adding the image to the inside of the lightbox (had previously been removed by accident)
+
 ## 1.5.3
 
 -   Switching to the open source glightbox library and away from fancybox

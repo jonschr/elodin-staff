@@ -26,9 +26,15 @@ function elodin_staff_content() {
 	
 	
 	printf( '<div class="staff-content" style="display: none;" id="staff-%s">', get_the_ID() );
-	
-		if ( $background ) 
-			printf( '<div class="photo-wrap"><div class="photo-large" style="background-image:url( %s )"></div></div>', $background );
+
+		if ( $background ) {
+			echo '<div class="photo-wrap">';
+				echo '<div class="photo-large">';
+					printf( '<img src="%s" alt="%s" />', $background, $title );					
+				echo '</div>';
+			echo '</div>';
+			
+		}
 		
 		// if ( has_post_thumbnail() )
 		// 	the_post_thumbnail( 'medium', ['class' => 'featured-right']);			

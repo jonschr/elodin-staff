@@ -3,7 +3,7 @@
 	Plugin Name: Elodin Staff
 	Plugin URI: https://elod.in
 	Description: Just another staff plugin
-	Version: 1.5.4
+	Version: 1.5.5
 	Author: Jon Schroeder
 	Author URI: https://elod.in
 
@@ -29,7 +29,7 @@ define( 'ELODIN_STAFF_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ELODIN_STAFF_PATH', plugin_dir_url( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'ELODIN_STAFF_VERSION', '1.5.4' );
+define ( 'ELODIN_STAFF_VERSION', '1.5.5' );
 
 // Add post types
 include_once( 'lib/post_type.php' );

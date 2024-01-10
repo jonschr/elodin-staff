@@ -1,3 +1,7 @@
+## 1.5.5
+
+-   Making it possible to copy/paste the photos
+
 ## 1.5.4
 
 -   Making lightbox text selectable

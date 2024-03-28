@@ -1,3 +1,7 @@
+## 1.5.6
+
+-   Updating bundled ACF to 6.2.7
+
 ## 1.5.5
 
 -   Making it possible to copy/paste the photos

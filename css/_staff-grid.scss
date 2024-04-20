@@ -139,6 +139,10 @@
 		transition: 0.5s all;
 		pointer-events: none;
 
+		a {
+			pointer-events: all;
+		}
+
 		:last-child {
 			margin-bottom: 0;
 		}

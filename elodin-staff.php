@@ -3,7 +3,7 @@
 	Plugin Name: Elodin Staff
 	Plugin URI: https://elod.in
 	Description: Just another staff plugin
-	Version: 1.5.6
+	Version: 1.6
 	Author: Jon Schroeder
 	Author URI: https://elod.in
 
@@ -29,7 +29,7 @@ define( 'ELODIN_STAFF_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ELODIN_STAFF_PATH', plugin_dir_url( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'ELODIN_STAFF_VERSION', '1.5.6' );
+define ( 'ELODIN_STAFF_VERSION', '1.6' );
 
 // Add post types
 include_once( 'lib/post_type.php' );
@@ -45,9 +45,9 @@ include_once( 'lib/documentation-link.php' );
 
 // Add layouts
 include_once( 'layouts/staff.php' );
-include_once( 'layouts/staff_content.php' );
-include_once( 'layouts/staff_grid.php' );
-include_once( 'layouts/staff_simple.php' );
+include_once( 'layouts/staff-content.php' );
+include_once( 'layouts/staff-grid.php' );
+include_once( 'layouts/staff-simple.php' );
 
 //* Enqueue Scripts and Styles
 add_action( 'wp_enqueue_scripts', 'elodin_staff_enqueue_scripts_styles' );

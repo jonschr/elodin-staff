@@ -1,3 +1,7 @@
+## 1.6
+
+-   Adding capability for permalinks
+
 ## 1.5.6
 
 -   Updating bundled ACF to 6.2.7

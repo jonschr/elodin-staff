@@ -72,7 +72,17 @@ function elodin_staff_content() {
 		if ( $content )
 			echo apply_filters( 'the_content', $content );
             
-        edit_post_link( 'Edit staff member', '<span class="edit-link"><small>', '</small></span>' );
+        edit_post_link( 'Edit staff member', '<p><span class="edit-link">', '</span></p>' );
+		
+		if ( current_user_can('edit_posts') ) {
+			// get the current URL
+			$url = home_url( add_query_arg( NULL, NULL ) );
+			
+			// append the staff member's ID, like #staff-%s
+			$url .= '#staff-' . get_the_ID();
+			
+			printf( '<p><span class="staff-permalink"><a target="_blank" href="%s">Staff lightbox permalink</a></span></p>', $url );
+		}
 
 	echo '</div>';
 	

@@ -49,6 +49,15 @@ html.glightbox-open {
 			}
 		}
 	}
+
+	p {
+		span.staff-permalink,
+		span.edit-link {
+			a {
+				color: black !important;
+			}
+		}
+	}
 }
 
 .glightbox-container .gslide,

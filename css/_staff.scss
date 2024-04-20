@@ -1,62 +1,59 @@
 .loop-layout-staff {
-    padding-top: 75px;
+	padding-top: 75px;
 
-    .entry {
-        margin-bottom: 50px;
+	.entry {
+		margin-bottom: 50px;
 
-        @include mobile {
-            margin-bottom: 75px;
-        }
+		@include mobile {
+			margin-bottom: 75px;
+		}
 
+		.loop-item-inner {
+			display: flex;
+			align-items: center;
 
-        .loop-item-inner {
-            display: flex;
-            align-items: center;
+			@include mobile {
+				flex-flow: column;
+			}
 
-            @include mobile {
-                flex-flow: column;
-            }
+			.left,
+			.right {
+				flex: 0 1 auto;
+				width: 100%;
+			}
 
+			.left {
+				max-width: calc(100% / 3);
+				margin-right: 35px;
 
-            .left,
-            .right {
-                flex: 0 1 auto;
-                width: 100%;
-            }
+				@include notdesktopwide {
+					max-width: 275px;
+				}
 
-            .left {
-                max-width: calc(100% / 3);
-                margin-right: 35px;
+				@include mobile {
+					max-width: 100%;
+					margin: 0 0 20px;
+				}
 
-                @include notdesktopwide {
-                    max-width: 275px;
-                }
+				.featured-image {
+					display: block;
+					width: 100%;
+					height: 0;
+					padding-top: 130%;
+					background-size: cover;
+					background-position: center center;
+					border-radius: 3px;
+				}
+			}
+		}
+	}
 
+	.staff-content {
+	}
 
-                @include mobile {
-                    max-width: 100%;
-                    margin: 0 0 20px;
-                }
-
-
-                .featured-image {
-                    display: block;
-                    width: 100%;
-                    height: 0;
-                    padding-top: 130%;
-                    background-size: cover;
-                    background-position: center center;
-                    border-radius: 3px;
-                }
-            }
-        }
-    }
-
-    .staff-content {}
-
-    .jobtitle {
-        text-transform: uppercase;
-        font-size: 14px;
-        letter-spacing: 2px;
-    }
+	.jobtitle {
+		text-transform: uppercase;
+		font-size: 14px;
+		letter-spacing: 2px;
+	}
 }
